@@ -1,4 +1,5 @@
 package com.capgemini.day5;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,15 +12,10 @@ public class Student {
 	private int age;
 	private String course;
 
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public Student(long rollNo, String name, int age, String course)
 			throws AgeNotWithinRangeException, NameNotValidException {
 
-		if (age <= 15 && age > 21) {
+		if (age <= 15 || age > 21) {
 			throw new AgeNotWithinRangeException("Age not in Range");
 		}
 
@@ -28,14 +24,13 @@ public class Student {
 
 		if (!m.matches())
 			throw new NameNotValidException("Name not valid");
-
+		System.out.println("User Created");
 		this.rollNo = rollNo;
 		this.name = name;
 		this.age = age;
 		this.course = course;
 
-		System.out.println("User Created");
+		
 	}
 
 }
-
